@@ -1,14 +1,14 @@
-# SecureCampus
+# SecureCampus — Documentación
 
-Sistema web académico desarrollado como proyecto del curso **Desarrollo
-Seguro**. Gestiona perfiles, calificaciones, documentos, solicitudes, usuarios,
-roles/permisos, grupos, asignaciones docentes, notificaciones y auditoría.
+Documentación del proyecto **SecureCampus**, sistema web académico desarrollado
+para el curso **Desarrollo Seguro**.
 
-El objetivo del proyecto no es únicamente que el sistema funcione, sino que
-**proteja la información y las operaciones sensibles desde el diseño**. Los
-casos negativos son requisitos de producto: un flujo no está terminado hasta
-que sus accesos no autorizados y sus abusos previsibles se rechazan **y se
-prueban**.
+Este repositorio contiene únicamente la documentación: los manuales de las
+prácticas, los análisis de seguridad, las decisiones de arquitectura y el
+material de operación.
+
+> **El código de la aplicación está en
+> [AppDesarrolloSeguro](https://github.com/AlexMtzz244/AppDesarrolloSeguro).**
 
 ## Equipo
 
@@ -27,6 +27,15 @@ prueban**.
 
 ---
 
+## Los dos repositorios
+
+| Repositorio | Contiene |
+|---|---|
+| **proyDesSeguro** (este) | Manuales Word de las prácticas, análisis SC-LAB / SC-SRS, ADR, decisiones pendientes y manual de operación. |
+| [**AppDesarrolloSeguro**](https://github.com/AlexMtzz244/AppDesarrolloSeguro) | El código: API (NestJS · Prisma), web (Next.js), contratos compartidos, infraestructura y CI. |
+
+---
+
 ## La idea que atraviesa todo el proyecto
 
 De [SC-LAB-001 §1](docs/security/SC-LAB-001-analisis-inicial.md):
@@ -40,148 +49,28 @@ Todo el diseño del servidor sale de ahí. Y su corolario, descubierto al
 analizar al jefe de carrera: **si un control se apoya en un dato, ese dato
 hereda la criticidad del control**.
 
-## Roles
-
-- **Estudiante** — su perfil, sus calificaciones, sus documentos, sus solicitudes.
-- **Profesor** — los grupos con **asignación docente vigente** a su nombre, y
-  los alumnos inscritos en ellos. No basta el rol: hace falta la relación.
-- **Jefe de carrera** — grupos y asignaciones docentes **de su propio
-  programa**. *(Rol agregado por el equipo; no estaba en el escenario original
-  del manual.)*
-- **Administrador** — usuarios, roles, permisos y consulta de auditoría, con
-  mínimo privilegio. **No** captura calificaciones.
-- **Autoridad académica** — **concede** autorizaciones sobre periodos cerrados,
-  y no puede usarlas. *(Rol agregado al resolver D-07: la pregunta no era quién
-  puede alterar el pasado, sino cómo lograr que nadie pueda hacerlo solo.)*
-
-Que el administrador no pueda calificar y que el jefe no pueda hacerlo con la
-misma cuenta no es un descuido: es la separación de funciones que impide
-encadenar el ataque del escenario 5.
-
 ---
 
-## Arranque
-
-### Requisitos
-
-- Node.js ≥ 20.11 · pnpm ≥ 9 · **Docker Desktop**
-- `gitleaks` (opcional en local, obligatorio en CI): `winget install gitleaks`
-
-### Pasos
-
-```powershell
-.\scripts\setup.ps1
-```
-
-Comprueba requisitos, genera el `.env` con secretos nuevos, levanta la
-infraestructura, migra, siembra y arranca. **[SETUP.md](SETUP.md)** explica los
-pasos manuales equivalentes y qué hacer cuando algo falla.
-
-Dos cosas que conviene saber antes de hacerlo a mano:
-
-- **Nada carga el `.env` por ti.** La API lee `process.env` directamente y
-  Prisma busca su `.env` en `apps/api/`, no en la raíz. Dentro de Docker lo
-  resuelve `env_file`; en el host hay que cargarlo en cada terminal
-  ([SETUP.md §4](SETUP.md#4-cargar-el-env-en-tu-terminal)).
-- **`docker compose up -d` a secas levanta también `api` y `web`**, que publican
-  los puertos 3000 y 3001. Si después ejecutas `pnpm dev`, los puertos chocan.
-  Levanta solo los servicios de datos, o no ejecutes `pnpm dev`.
-
-| Servicio | URL |
-|---|---|
-| Aplicación web | http://localhost:3000 |
-| API | http://localhost:3001 |
-| OpenAPI | http://localhost:3001/api/docs |
-| Mailpit (correo local) | http://localhost:8025 |
-| MinIO (consola) | http://localhost:9001 |
-
-> La aplicación **se niega a arrancar** si falta una variable crítica. Es
-> deliberado (RNFS-052): un valor por defecto silencioso en una variable de
-> seguridad es peor que no arrancar.
-
-### Credenciales de desarrollo
-
-Contraseña para todas: `SemillaDesarrollo!2026`
-
-| Correo | Rol |
-|---|---|
-| `admin@securecampus.edu.mx` | Administrador |
-| `autoridad@securecampus.edu.mx` | Autoridad académica |
-| `jefe.isc@securecampus.edu.mx` | Jefe de carrera (ISC) |
-| `profesor@securecampus.edu.mx` | Profesor |
-| `estudiante.a@securecampus.edu.mx` | Estudiante |
-| `estudiante.b@securecampus.edu.mx` | Estudiante |
-
-> **Son credenciales de desarrollo, documentadas públicamente.** El arranque en
-> producción con datos semilla presentes falla de forma explícita (RNFS-058).
->
-> Hay dos estudiantes a propósito: sin dos cuentas del mismo rol no se puede
-> comprobar que A no alcanza los datos de B.
->
-> Y hay una cuenta de **autoridad académica** que solo puede *conceder*
-> autorizaciones sobre periodos cerrados, nunca usarlas: alterar el pasado
-> exige forzosamente dos cuentas distintas (ver D-07).
-
----
-
-## Comandos
-
-```bash
-pnpm lint          # ESLint
-pnpm typecheck     # Tipos en todo el monorepo
-pnpm test          # Unitarias y estructurales
-pnpm test:int      # Integración: las 13 pruebas negativas obligatorias
-pnpm e2e           # Playwright
-pnpm secrets:scan  # gitleaks sobre el historial completo
-pnpm sbom          # Inventario de dependencias (CycloneDX)
-```
-
----
-
-## Estructura
+## Contenido
 
 ```
 proyDesSeguro/
-├── apps/api/              NestJS · Prisma · autorización, auditoría, dominio
-├── apps/web/              Next.js App Router · Tailwind · Radix
-├── packages/contracts/    Permisos y esquemas Zod compartidos
-├── infra/postgres/init/   Rol de aplicación con privilegio mínimo
 └── docs/
     ├── security/          SC-LAB-001..003 y SC-SRS-001
     ├── adr/               ADR-001..008
     ├── DECISIONES-PENDIENTES.md
-    └── OPERACION.md
+    ├── OPERACION.md
+    └── *.docx             Manuales de alumno de cada práctica
 ```
-
-### Dónde están los controles principales
-
-| Control | Archivo |
-|---|---|
-| Deny by default | [politica.guard.ts](apps/api/src/autorizacion/politica.guard.ts) |
-| Relación actor↔recurso | [relaciones.ts](apps/api/src/autorizacion/relaciones.ts) |
-| Separación de funciones | [permisos.ts](packages/contracts/src/permisos.ts) |
-| Auditoría atómica | [auditoria.service.ts](apps/api/src/auditoria/auditoria.service.ts) |
-| Bitácora inmutable | [migración 2](apps/api/prisma/migrations/20260921000002_auditoria_append_only/migration.sql) |
-| Sesión opaca y revocable | [sesion.service.ts](apps/api/src/identidad/sesion.service.ts) |
-| RF-010 reescrito | [recuperacion.service.ts](apps/api/src/identidad/recuperacion.service.ts) |
-| Asignación versionada | [asignaciones.service.ts](apps/api/src/academico/asignaciones.service.ts) |
-| Alertas detectivas | [alertas.service.ts](apps/api/src/alertas/alertas.service.ts) |
-| Entrega privada de documentos | [documentos.service.ts](apps/api/src/documentos/documentos.service.ts) |
-| Doble cuenta para cambios retroactivos | [permisos.ts](packages/contracts/src/permisos.ts) · `PARES_INCOMPATIBLES` |
-| Firma de decisiones institucionales | [decisiones.service.ts](apps/api/src/configuracion/decisiones.service.ts) |
-
----
-
-## Documentación
 
 ### Análisis previo a la implementación
 
-| Práctica | Pregunta que responde | Documento |
-|---|---|---|
-| **SC-LAB-001** | ¿Qué puede salir mal? | [Análisis inicial](docs/security/SC-LAB-001-analisis-inicial.md) |
-| **SC-LAB-002** | ¿En qué fase se actúa? | [Mapa Secure SDLC](docs/security/SC-LAB-002-secure-sdlc-map.md) |
-| **SC-LAB-003** | ¿Qué cuesta descubrirlo tarde? | [Costo y Shift Left](docs/security/SC-LAB-003-shift-left-analysis.md) |
-| **SC-SRS-001** | ¿Qué debe hacer, y qué no debe permitir? | [Requisitos](docs/security/SC-SRS-001-requisitos-aplicacion.md) |
+| Práctica | Pregunta que responde | Documento | Manual |
+|---|---|---|---|
+| **SC-LAB-001** | ¿Qué puede salir mal? | [Análisis inicial](docs/security/SC-LAB-001-analisis-inicial.md) | [Word](docs/SC_LAB_001_Manual_Alumno_Analisis_Inicial_Seguridad_v1.0.docx) |
+| **SC-LAB-002** | ¿En qué fase se actúa? | [Mapa Secure SDLC](docs/security/SC-LAB-002-secure-sdlc-map.md) | [Word](docs/SC_LAB_002_Manual_Alumno_Secure_SDLC.docx) |
+| **SC-LAB-003** | ¿Qué cuesta descubrirlo tarde? | [Costo y Shift Left](docs/security/SC-LAB-003-shift-left-analysis.md) | [Word](docs/SC_LAB_003_Manual_Alumno_Shift_Left_v1.0.docx) |
+| **SC-SRS-001** | ¿Qué debe hacer, y qué no debe permitir? | [Requisitos](docs/security/SC-SRS-001-requisitos-aplicacion.md) | — |
 
 ### Decisiones de arquitectura
 
@@ -208,42 +97,11 @@ proyDesSeguro/
 
 ---
 
-## Pruebas negativas obligatorias
-
-Las 13 del prompt maestro, con dónde se verifican:
-
-| # | Qué comprueba | Archivo |
-|---|---|---|
-| 1 | Estudiante A no alcanza los datos de B → 403 y evento | `autorizacion.int.spec.ts` |
-| 2 | Profesor en grupo ajeno o periodo cerrado → 403, sin mutación | `academico.int.spec.ts` |
-| 3 | Calificación publicada no se edita sin flujo de corrección | `academico.int.spec.ts` |
-| 4 | Jefe fuera de su programa, choque de aula, periodo cerrado | `academico.int.spec.ts` |
-| 5 | Asignación creada/revertida queda reconstruible | `academico.int.spec.ts` |
-| 6 | Cliente altera rol / permiso / ID → 403 | `autorizacion.int.spec.ts` |
-| 7 | Límite de intentos, sin enumerar, latencia uniforme | `identidad.int.spec.ts` |
-| 8 | Enlace de recuperación reutilizado, vencido o sustituido | `identidad.int.spec.ts` |
-| 9 | Ejecutable renombrado, tamaño, cuota, URL directa | `documentos.int.spec.ts` |
-| 10 | Mutación y auditoría atómicas | `auditoria.int.spec.ts` |
-| 11 | Rotación de sesión; cambio de contraseña revoca todas | `identidad.int.spec.ts` |
-| 12 | Auditoría rechaza UPDATE/DELETE/TRUNCATE | `auditoria.int.spec.ts` |
-| 13 | Escaneo de secretos y auditoría de dependencias | `.github/workflows/ci.yml` |
-
-Más dos **pruebas estructurales**, que son las que impiden la regresión
-silenciosa:
-
-- **Toda ruta declara su política** — la build falla si alguien agrega un
-  endpoint sin ella (`politicas-declaradas.spec.ts`).
-- **La matriz de permisos respeta la separación de funciones** y toda
-  combinación leer+modificar está declarada como intencional
-  (`separacion-funciones.spec.ts`).
-
----
-
 ## Convenciones
 
 - Documentación en español, en `docs/`. Los análisis de seguridad en
   `docs/security/` con el identificador de la práctica en el nombre.
 - Antes de cada commit: `git status`, `git diff`, `git add`, `git diff --staged`.
 - Mensajes con prefijo de tipo: `docs: agregar analisis inicial SC-LAB-001`.
-- **Nunca** commitear `.env`. El hook de pre-commit lo bloquea, y CI vuelve a
-  escanear sobre el historial completo por si alguien usó `--no-verify`.
+- Los cambios de código van en
+  [AppDesarrolloSeguro](https://github.com/AlexMtzz244/AppDesarrolloSeguro), no aquí.
