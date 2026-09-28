@@ -14,10 +14,10 @@ material de operación.
 
 | Integrante | Matrícula |
 |---|---|
-| Cesar Adan De La Cruz Moctezuma | _(completar)_ |
-| Diego Salazar Reyes | _(completar)_ |
-| Juan Pablo Castillo Angeles | _(completar)_ |
-| Alejandro Martínez | _(completar)_ |
+| Cesar Adan De La Cruz Moctezuma | 22280634 |
+| Diego Salazar Reyes | 22280625 |
+| Juan Pablo Castillo Angeles | 22281375 |
+| Alejandro Martínez | 22280630 |
 
 | | |
 |---|---|
