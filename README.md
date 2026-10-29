@@ -70,6 +70,7 @@ proyDesSeguro/
 | **SC-LAB-001** | ¿Qué puede salir mal? | [Análisis inicial](docs/security/SC-LAB-001-analisis-inicial.md) | [Word](docs/SC_LAB_001_Manual_Alumno_Analisis_Inicial_Seguridad_v1.0.docx) |
 | **SC-LAB-002** | ¿En qué fase se actúa? | [Mapa Secure SDLC](docs/security/SC-LAB-002-secure-sdlc-map.md) | [Word](docs/SC_LAB_002_Manual_Alumno_Secure_SDLC.docx) |
 | **SC-LAB-003** | ¿Qué cuesta descubrirlo tarde? | [Costo y Shift Left](docs/security/SC-LAB-003-shift-left-analysis.md) | [Word](docs/SC_LAB_003_Manual_Alumno_Shift_Left_v1.0.docx) |
+| **SC-LAB-006** | ¿Los controles resisten las pruebas? | [Código y evidencias](docs/security/SC-LAB-006-securecampus/) | [Word](docs/SC_LAB_006_Guia_Estudiante_Laboratorio_Integrador.docx) |
 | **SC-SRS-001** | ¿Qué debe hacer, y qué no debe permitir? | [Requisitos](docs/security/SC-SRS-001-requisitos-aplicacion.md) | — |
 
 ### Decisiones de arquitectura
