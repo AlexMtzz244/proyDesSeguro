@@ -1,0 +1,125 @@
+ RUN  v4.1.11 /tmp/claude-0/-home-user/555abb18-5e2d-56ca-9036-b1372ac2c29f/scratchpad/repos/app/apps/api
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > matriz de codigos (experiencias A, B y C) > A. GET del grupo propio responde 200; el grupo ajeno, 403; sin sesion, 401 40ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > matriz de codigos (experiencias A, B y C) > B. la captura de 88.50 responde 201 y se guarda tal cual 29ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > matriz de codigos (experiencias A, B y C) > B. la captura en el grupo ajeno responde 403 y no deja fila 12ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > matriz de codigos (experiencias A, B y C) > B. el valor 150 responde 400 y no deja fila 13ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > matriz de codigos (experiencias A, B y C) > B. sin sesion la captura responde 401 y no deja fila 4ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > matriz de codigos (experiencias A, B y C) > C. la alumna es dueña de la calificacion y aun asi no la modifica: 403 9ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > matriz de codigos (experiencias A, B y C) > C. cambiar el identificador de la ruta no abre la calificacion de otra persona 56ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > CSRF: una peticion de otro origen no cambia nada > captura con sesion valida pero Origin ajeno: 403 y el valor guardado no cambia 7ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > CSRF: una peticion de otro origen no cambia nada > la misma captura desde el origen del frontend procede y cambia el valor 23ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > CSRF: una peticion de otro origen no cambia nada > Origin: null y Sec-Fetch-Site: cross-site tambien se rechazan 7ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > CSRF: una peticion de otro origen no cambia nada > un origen ajeno no puede cerrar la sesion de la persona (logout CSRF) 12ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > CSRF: una peticion de otro origen no cambia nada > el inicio de sesion desde un origen ajeno se rechaza y no emite cookie (login CSRF) 3ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > CSRF: una peticion de otro origen no cambia nada > las lecturas no se bloquean por el origen (solo CORS limita leerlas) 10ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > sesion del cliente: cookie HttpOnly y nada que guardar (SC-LAB-008, pasos 4 y 6) > la cookie lleva HttpOnly, Secure, SameSite=Lax y Path=/ 283ms
+ ✓ test/sc-lab-007-008.int.spec.ts > SC-LAB-007/008: matriz HTTP, CSRF y sesion > sesion del cliente: cookie HttpOnly y nada que guardar (SC-LAB-008, pasos 4 y 6) > el token de sesion no aparece en ningun cuerpo JSON: JavaScript no tiene nada que leer 296ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 7. credencial incorrecta y usuario inexistente responden IGUAL 837ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 7. la latencia tampoco distingue si la cuenta existe (RNFS-016) 928ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 7. el limite por cuenta se activa y responde 429 9258ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 7. los intentos fallidos quedan como evidencia en Postgres 3ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 7. un correo inexistente tambien deja rastro, para detectar enumeracion 408ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 11. la sesion se regenera en cada login (RNFS-013) 1349ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 11. la cookie lleva HttpOnly y SameSite (RNFS-012) 293ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 11. se almacena el hash de la sesion, nunca el token (RNFS-011) 287ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 11. cambiar la contrasena revoca TODAS las sesiones (RNFS-014) 690ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 11. el cambio de contrasena exige la actual 348ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 11. cerrar sesion la revoca en el servidor, no solo en el navegador 335ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 8. recuperacion de cuenta (RF-010) > la solicitud responde IGUAL exista o no la cuenta (RNFS-020) 23ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 8. recuperacion de cuenta (RF-010) > se almacena solo el hash del token (RNFS-021) 4ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 8. recuperacion de cuenta (RF-010) > un token valido completa la recuperacion una sola vez 33ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 8. recuperacion de cuenta (RF-010) > un token vencido se rechaza (RNFS-022) 7ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 8. recuperacion de cuenta (RF-010) > emitir un token nuevo invalida el anterior (RNFS-023) 43ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 8. recuperacion de cuenta (RF-010) > token inexistente, vencido y usado responden IDENTICO 57ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 8. recuperacion de cuenta (RF-010) > el token nunca aparece en la bitacora (RNFS-024) 37ms
+ ✓ test/identidad.int.spec.ts > identidad, sesion y recuperacion > 8. recuperacion de cuenta (RF-010) > completar la recuperacion revoca todas las sesiones (RNFS-025) 336ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > el jefe solo ve como candidatos a estudiantes de su programa 18ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > el jefe no inscribe a un estudiante de otro programa ni a un profesor 27ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > el jefe no inscribe en un grupo de otro programa 12ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > el profesor no inscribe: no tiene el permiso 9ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > inscribe, rechaza duplicado y respeta el cupo 30ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > la baja exige motivo y conserva la fila 34ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > no se asigna como profesor a una cuenta que no puede capturar 11ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > el catalogo de profesores del jefe solo trae cuentas que pueden capturar 8ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > corregir en periodo cerrado sin autorizacion se rechaza sin mutar 11ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > la autoridad concede y el administrador ejecuta una sola vez 61ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > la busqueda de corregibles exige MFA y no devuelve borradores 309ms
+ ✓ test/operacion-roles.int.spec.ts > operaciones por rol > el administrador levanta el bloqueo por intentos y queda auditado 8745ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 2. el profesor con asignacion vigente SI captura en su grupo 27ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 2. el profesor SIN asignacion no escribe en ese grupo: 403 y sin mutacion 17ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 2. tampoco lee la lista de captura de un grupo ajeno 13ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 2. una asignacion CERRADA deja de autorizar 21ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 3. el profesor no edita directamente una calificacion publicada 33ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 3. el profesor tampoco tiene el permiso de correccion (RNFS-007) 11ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 3. toda version de la calificacion conserva el valor anterior (RF-045) 3ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 4. el jefe no alcanza un grupo de otro programa: 403 12ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 4. el jefe no asigna profesor a un grupo de otro programa 14ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 4. el jefe no crea grupos en un periodo cerrado 19ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 4. el choque de aula lo rechaza la base de datos, no solo la aplicacion 24ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 4. el jefe no puede asignarse a si mismo como profesor 9ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 5. asignacion creada y revertida (escenario 5 de SC-LAB-001) > la asignacion se VERSIONA, nunca se sobrescribe (RF-031) 31ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 5. asignacion creada y revertida (escenario 5 de SC-LAB-001) > solo hay UNA asignacion vigente por grupo 1ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 5. asignacion creada y revertida (escenario 5 de SC-LAB-001) > el paso intermedio queda en el historial y en la bitacora 13ms
+ ✓ test/academico.int.spec.ts > dominio academico y calificaciones > 5. asignacion creada y revertida (escenario 5 de SC-LAB-001) > el ataque completo queda reconstruible pese a terminar consistente 17ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor 150 con 400 y sin crear ninguna fila 19ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor -1 con 400 y sin crear ninguna fila 18ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor 100.01 con 400 y sin crear ninguna fila 11ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor "hola" con 400 y sin crear ninguna fila 9ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor "" con 400 y sin crear ninguna fila 10ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor "98.5" con 400 y sin crear ninguna fila 11ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor "NaN" con 400 y sin crear ninguna fila 9ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor "Infinity" con 400 y sin crear ninguna fila 9ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor null con 400 y sin crear ninguna fila 10ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor true con 400 y sin crear ninguna fila 9ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor 99.999 con 400 y sin crear ninguna fila 12ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > rechaza el valor 1e-7 con 400 y sin crear ninguna fila 10ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > un lote con UNA sola nota invalida no guarda ninguna 9ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > el profesor asignado captura valores limite validos tal cual (0.07 y 100) 24ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > el profesor asignado NO califica a un estudiante no inscrito: 403 sin mutacion 12ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > un lote con un no inscrito entre inscritos se revierte completo 17ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > un estudiante no captura calificaciones: 403 sin mutacion 11ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > lectura de calificaciones por estudiantes > el estudiante NO ve su calificacion mientras sea borrador 11ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > lectura de calificaciones por estudiantes > tras publicar, el estudiante ve la propia pero no la de otro 51ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > lectura de calificaciones por estudiantes > una calificacion inexistente responde igual que una ajena (RNFS-006) 18ms
+ ✓ test/calificaciones.int.spec.ts > SC-LAB-006: validacion y permisos de calificaciones > lectura de calificaciones por estudiantes > el profesor asignado ve la calificacion de su grupo 8ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 12. la aplicacion NO puede hacer UPDATE sobre la bitacora (RNFS-031) 20ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 12. la aplicacion NO puede hacer DELETE sobre la bitacora 5ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 12. la aplicacion NO puede hacer TRUNCATE sobre la bitacora 4ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 12. la API no expone ninguna ruta de escritura sobre auditoria (RF-081) 12ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 12. la consulta de auditoria SI funciona para quien la tiene (RF-080) 12ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 10. la asignacion de rol produce su evento en la misma transaccion 25ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 10. si la mutacion falla, NO queda evento (RNFS-030) 6ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 10. el evento registra los doce campos exigidos (RNFS-032) 6ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 10. la bitacora nunca guarda contrasenas ni tokens 5ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 10. al pasar por el servicio, los campos sensibles se omiten 42ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 4. rechaza acumular asignar docencia y capturar calificaciones (RNFS-007) 39ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > 4. un administrador no puede asignarse roles a si mismo 11ms
+ ✓ test/auditoria.int.spec.ts > auditoria append-only y atomicidad > un permiso vencido deja de aplicar sin tarea de limpieza 320ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > 1. el estudiante consulta su propio perfil 32ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > 1. el estudiante A NO alcanza el perfil de B: 403 14ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > 1. el acceso denegado queda en la bitacora (RNFS-033) 11ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > 1. un identificador inexistente responde IGUAL que uno ajeno (RNFS-006) 15ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > 1. la enumeracion de identificadores no encuentra nada 14ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > 6. enviar un rol en el cuerpo no otorga nada 13ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > 6. alterar la cookie de sesion invalida la sesion 4ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > 6. una cabecera de suplantacion no cambia el actor 10ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > 6. un permiso de lectura no habilita escritura (RNFS-004) 10ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > 6. ocultar el menu no protege el endpoint (RNFS-063) 12ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > 6. sin sesion, cualquier ruta protegida responde 401 6ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > una ruta inexistente nunca responde 200 3ms
+ ✓ test/autorizacion.int.spec.ts > autorizacion por relacion usuario-recurso > el administrador necesita MFA verificada para administrar (RNFS-017) 320ms
+ ✓ test/documentos.int.spec.ts > documentos: entrega privada, tipo real y cuota > 9. rechaza un ejecutable renombrado a .pdf (RNFS-044) 43ms
+ ✓ test/documentos.int.spec.ts > documentos: entrega privada, tipo real y cuota > 9. el rechazo por tipo queda auditado 2ms
+ ✓ test/documentos.int.spec.ts > documentos: entrega privada, tipo real y cuota > 9. rechaza un archivo que excede el tamano maximo (RNFS-045) 22ms
+ ✓ test/documentos.int.spec.ts > documentos: entrega privada, tipo real y cuota > 9. rechaza cuando la cuota esta agotada (RNFS-045) 18ms
+ ✓ test/documentos.int.spec.ts > documentos: entrega privada, tipo real y cuota > 9. el documento de otro usuario responde 403 (RNFS-042) 17ms
+ ✓ test/documentos.int.spec.ts > documentos: entrega privada, tipo real y cuota > 9. un documento inexistente responde IGUAL que uno ajeno (RNFS-006) 18ms
+ ✓ test/documentos.int.spec.ts > documentos: entrega privada, tipo real y cuota > 9. un documento en cuarentena no se entrega ni a su titular (RNFS-046) 12ms
+ ✓ test/documentos.int.spec.ts > documentos: entrega privada, tipo real y cuota > 9. un fallo del antivirus NO cuenta como limpio 12ms
+ ✓ test/documentos.int.spec.ts > documentos: entrega privada, tipo real y cuota > 9. el listado nunca expone la clave de objeto ni el bucket (RNFS-040) 7ms
+ ✓ test/documentos.int.spec.ts > documentos: entrega privada, tipo real y cuota > 9. la clave de objeto no se puede deducir de la matricula (RNFS-041) 2ms
+ ✓ test/documentos.int.spec.ts > documentos: entrega privada, tipo real y cuota > el titular no sube documentos a nombre de otro 7ms
+ Test Files  8 passed (8)
+      Tests  120 passed (120)
+   Start at  13:51:02
+   Duration  43.12s (transform 630ms, setup 0ms, import 5.90s, tests 36.21s, environment 1ms)

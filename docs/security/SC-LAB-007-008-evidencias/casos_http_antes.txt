@@ -1,0 +1,46 @@
+API:           http://localhost:3001  (esquema http:, solo valido en localhost)
+Grupo propio:  01M7809AAFRC5B1ER4ENW0AAWP  (profesor asignado)
+Grupo ajeno:   01M7809H652MC0PK0Q1V44FYA9  (el profesor NO esta asignado)
+
+A. Profesor: consulta de grupos
+OK    A1  GET lista del grupo PROPIO                                         esperado 200  obtenido 200
+OK    A2  GET lista del grupo AJENO (misma sesion)                           esperado 403  obtenido 403
+OK    A3  GET sin sesion                                                     esperado 401  obtenido 401
+
+B. Profesor: captura de calificaciones
+OK    B1  captura 88.50 a la alumna inscrita (grupo propio)                  esperado 201  obtenido 201
+OK    B1  valor guardado: 88.5 (se espera 88.5, sin redondeo)
+OK    B2  captura en el grupo AJENO                                          esperado 403  obtenido 403
+OK    B3  captura con valor 150 (fuera de rango)                             esperado 400  obtenido 400
+OK    B4  captura con valor "1e2" (notacion cientifica como texto)           esperado 400  obtenido 400
+OK    B5  captura sin sesion                                                 esperado 401  obtenido 401
+OK    B6  tras los rechazos el valor sigue en 88.5 (se espera 88.5)
+
+C. Peticiones desde otro origen (CSRF)
+FALLA  C1  captura con sesion valida pero Origin ajeno                        esperado 403  obtenido 201
+FALLA  C1  valor guardado: 91 (sin cambios respecto a 88.5)
+FALLA  C2  inicio de sesion desde Origin ajeno                                esperado 403  obtenido 200
+FALLA  C2  no se emitio cookie de sesion
+FALLA  C3  cierre de sesion de la alumna desde Origin ajeno                   esperado 403  obtenido 204
+FALLA  C4  la sesion de la alumna sigue viva tras el intento                  esperado 200  obtenido 401
+
+D. Alumna: control de acceso
+OK    D0  el profesor publica las calificaciones del grupo propio            esperado 201  obtenido 201
+FALLA  D1  GET de su propia calificacion                                      esperado 200  obtenido 401
+FALLA  D2  GET de la calificacion de otra persona (cambiando el id)           esperado 403  obtenido 401
+FALLA  D3  intento de modificar la propia calificacion                        esperado 403  obtenido 401
+FALLA  D3  valor guardado: 91 (se espera 88.5)
+
+E. Sesion del cliente (SC-LAB-008)
+      Set-Cookie: sc_sesion=<43 caracteres, no se imprime>; path; expires; httponly; samesite
+OK    E1  la cookie es HttpOnly
+OK    E2  la cookie lleva SameSite
+OK    E3  la cookie lleva Path=/
+      Secure: ausente (SESION_COOKIE_SECURE=false, solo para HTTP en localhost)
+OK    E4  el token de sesion no aparece en el cuerpo de /auth/yo
+OK    E5  sin cookie, la API no identifica a nadie                           esperado 401  obtenido 401
+
+10 caso(s) no coinciden.
+/tmp/claude-0/-home-user/555abb18-5e2d-56ca-9036-b1372ac2c29f/scratchpad/repos/app/apps/api:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  api@0.1.0 lab:casos-http: `tsx scripts/casos-http-lab007.ts`
+Exit status 1
