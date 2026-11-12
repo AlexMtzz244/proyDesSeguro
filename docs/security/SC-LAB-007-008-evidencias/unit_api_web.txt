@@ -1,0 +1,119 @@
+
+ RUN  v4.1.11 /tmp/claude-0/-home-user/555abb18-5e2d-56ca-9036-b1372ac2c29f/scratchpad/repos/app/apps/api
+
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: perfil endurecido > api-endurecido existe solo bajo el perfil `endurecido` 1ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: perfil endurecido > web-endurecido existe solo bajo el perfil `endurecido` 0ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: perfil endurecido > api-endurecido usa la imagen de produccion 0ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: perfil endurecido > web-endurecido usa la imagen de produccion 0ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: perfil endurecido > api-endurecido corre sin privilegios: usuario no root, sin capacidades 3ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: perfil endurecido > web-endurecido corre sin privilegios: usuario no root, sin capacidades 0ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: perfil endurecido > api-endurecido tiene la raiz de solo lectura y /tmp en memoria 0ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: perfil endurecido > web-endurecido tiene la raiz de solo lectura y /tmp en memoria 0ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: perfil endurecido > api-endurecido no monta el codigo del host 0ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: perfil endurecido > web-endurecido no monta el codigo del host 0ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: perfil endurecido > el perfil no impone HTTP: la cookie Secure y los datos semilla estan fijados 0ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: todos los servicios > ningun puerto se publica fuera de 127.0.0.1 0ms
+ ✓ src/config/contenedores.spec.ts > docker-compose.yml: todos los servicios > ninguna credencial aparece literal: todas se interpolan desde .env 0ms
+ ✓ src/config/contenedores.spec.ts > Dockerfile: la etapa final no es root > apps/api/Dockerfile termina con USER node 0ms
+ ✓ src/config/contenedores.spec.ts > Dockerfile: la etapa final no es root > apps/web/Dockerfile termina con USER node 0ms
+ ✓ src/config/contenedores.spec.ts > .dockerignore: lo que no debe viajar en la imagen > excluye .env 0ms
+ ✓ src/config/contenedores.spec.ts > .dockerignore: lo que no debe viajar en la imagen > excluye .git 0ms
+ ✓ src/config/contenedores.spec.ts > .dockerignore: lo que no debe viajar en la imagen > excluye node_modules 0ms
+ ✓ src/config/contenedores.spec.ts > .dockerignore: lo que no debe viajar en la imagen > excluye *.db 0ms
+ ✓ src/config/contenedores.spec.ts > .dockerignore: lo que no debe viajar en la imagen > conserva la plantilla .env.example 0ms
+ ✓ src/config/entorno.spec.ts > configuracion: cookie Secure y HTTPS fuera de localhost > en desarrollo la cookie Secure es true por omision, y se puede apagar para HTTP local 4ms
+ ✓ src/config/entorno.spec.ts > configuracion: cookie Secure y HTTPS fuera de localhost > una configuracion de produccion con HTTPS y cookie Secure arranca 1ms
+ ✓ src/config/entorno.spec.ts > configuracion: cookie Secure y HTTPS fuera de localhost > produccion NO arranca con SESION_COOKIE_SECURE=false 1ms
+ ✓ src/config/entorno.spec.ts > configuracion: cookie Secure y HTTPS fuera de localhost > produccion NO arranca con un origen http:// en CORS 1ms
+ ✓ src/autorizacion/decisiones-resueltas.spec.ts > D-07: quien autoriza un cambio retroactivo no puede ejecutarlo > ningun rol acumula autorizar y ejecutar 2ms
+ ✓ src/autorizacion/decisiones-resueltas.spec.ts > D-07: quien autoriza un cambio retroactivo no puede ejecutarlo > la combinacion se rechaza aunque venga de dos roles distintos 1ms
+ ✓ src/autorizacion/decisiones-resueltas.spec.ts > D-07: quien autoriza un cambio retroactivo no puede ejecutarlo > quien autoriza tampoco puede tocar calificaciones 0ms
+ ✓ src/autorizacion/decisiones-resueltas.spec.ts > D-07: quien autoriza un cambio retroactivo no puede ejecutarlo > la autoridad puede leer la auditoria 1ms
+ ✓ src/autorizacion/decisiones-resueltas.spec.ts > D-07: quien autoriza un cambio retroactivo no puede ejecutarlo > el rol exige segundo factor 0ms
+ ✓ src/autorizacion/decisiones-resueltas.spec.ts > D-07: quien autoriza un cambio retroactivo no puede ejecutarlo > exactamente un rol puede autorizar y exactamente uno puede ejecutar 2ms
+ ✓ src/autorizacion/decisiones-resueltas.spec.ts > registro de decisiones institucionales (SC-SRS-001 §8) > las once decisiones estan catalogadas 1ms
+ ✓ src/autorizacion/decisiones-resueltas.spec.ts > registro de decisiones institucionales (SC-SRS-001 §8) > cada decision declara quien la aprueba, y no es el equipo 1ms
+ ✓ src/autorizacion/decisiones-resueltas.spec.ts > registro de decisiones institucionales (SC-SRS-001 §8) > cada decision trae una propuesta concreta que aprobar o rechazar 1ms
+ ✓ src/autorizacion/decisiones-resueltas.spec.ts > registro de decisiones institucionales (SC-SRS-001 §8) > las bloqueantes son pocas, para que el mecanismo no se desactive 0ms
+ ✓ src/autorizacion/decisiones-resueltas.spec.ts > registro de decisiones institucionales (SC-SRS-001 §8) > bloquean produccion las que no admiten un valor por defecto defendible 0ms
+ ✓ src/autorizacion/separacion-funciones.spec.ts > separacion de funciones (RNFS-007) > ningun rol sembrado acumula asignar docencia y capturar calificaciones 4ms
+ ✓ src/autorizacion/separacion-funciones.spec.ts > separacion de funciones (RNFS-007) > detecta el encadenamiento del escenario 5 de SC-LAB-001 1ms
+ ✓ src/autorizacion/separacion-funciones.spec.ts > separacion de funciones (RNFS-007) > detecta el conflicto aunque los permisos vengan de roles distintos 0ms
+ ✓ src/autorizacion/separacion-funciones.spec.ts > separacion de funciones (RNFS-007) > una combinacion legitima no produce falsos positivos 0ms
+ ✓ src/autorizacion/separacion-funciones.spec.ts > coherencia de la matriz rol-permiso (SC-SRS-001 §6) > todo permiso de la matriz existe en el catalogo cerrado 2ms
+ ✓ src/autorizacion/separacion-funciones.spec.ts > coherencia de la matriz rol-permiso (SC-SRS-001 §6) > el administrador no tiene permisos academicos operativos 1ms
+ ✓ src/autorizacion/separacion-funciones.spec.ts > coherencia de la matriz rol-permiso (SC-SRS-001 §6) > el estudiante no tiene ningun permiso de escritura sobre terceros 1ms
+ ✓ src/autorizacion/separacion-funciones.spec.ts > coherencia de la matriz rol-permiso (SC-SRS-001 §6) > toda combinacion leer+modificar esta declarada como intencional (RNFS-004) 1ms
+ ✓ src/autorizacion/separacion-funciones.spec.ts > coherencia de la matriz rol-permiso (SC-SRS-001 §6) > la lista de excepciones no contiene entradas muertas 1ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > asignacionEsVigente > vigente sin fecha de fin 7ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > asignacionEsVigente > vigente con fin futuro 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > asignacionEsVigente > empieza exactamente ahora: vigente 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > asignacionEsVigente > termina exactamente ahora: ya no vigente (limite abierto) 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > asignacionEsVigente > terminada en el pasado 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > asignacionEsVigente > futura: todavia no cuenta 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeModificarCalificacion (deny by default) > asignacion=true periodo=true inscrito=true 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeModificarCalificacion (deny by default) > asignacion=true periodo=true inscrito=false 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeModificarCalificacion (deny by default) > asignacion=true periodo=false inscrito=true 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeModificarCalificacion (deny by default) > asignacion=true periodo=false inscrito=false 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeModificarCalificacion (deny by default) > asignacion=false periodo=true inscrito=true 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeModificarCalificacion (deny by default) > asignacion=false periodo=true inscrito=false 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeModificarCalificacion (deny by default) > asignacion=false periodo=false inscrito=true 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeModificarCalificacion (deny by default) > asignacion=false periodo=false inscrito=false 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeModificarCalificacion (deny by default) > sin indicar inscripcion no la exige 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeModificarCalificacion (deny by default) > el motivo prioriza la relacion sobre el periodo 1ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeModificarCalificacion (deny by default) > distingue periodo cerrado de estudiante no inscrito 1ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeConsultarCalificacion > el titular ve su calificacion publicada 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeConsultarCalificacion > el titular ve una corregida 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeConsultarCalificacion > el titular NO ve su borrador 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeConsultarCalificacion > el profesor con asignacion vigente ve incluso borradores 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeConsultarCalificacion > un tercero sin asignacion no ve nada 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeCorregirCalificacion > rechaza borradores 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeCorregirCalificacion > permite publicado 0ms
+ ✓ src/autorizacion/permisos-calificacion.spec.ts > puedeCorregirCalificacion > permite corregido 0ms
+[33m[Nest] 5190  - [39m11/12/2026, 1:51:46 PM [33m   WARN[39m [38;5;3m[OrigenGuard] [39m[33mPeticion POST /api/calificaciones/captura rechazada: origen-no-permitido:https://atacante.example[39m
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > GET nunca se bloquea: no cambia estado 1ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > HEAD nunca se bloquea: no cambia estado 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > OPTIONS nunca se bloquea: no cambia estado 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > get nunca se bloquea: no cambia estado 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > POST desde un origen ajeno se rechaza 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > PATCH desde un origen ajeno se rechaza 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > PUT desde un origen ajeno se rechaza 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > DELETE desde un origen ajeno se rechaza 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > POST desde el origen permitido http://localhost:3000 procede 1ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > POST desde el origen permitido https://campus.example.mx procede 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > tolera la barra final en el origen o en la lista 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > no confunde un origen que solo EMPIEZA igual que uno permitido 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > rechaza `Origin: null` (iframe con sandbox, redireccion entre sitios) 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > sin Origin, Sec-Fetch-Site cross-site se rechaza 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > sin Origin, Sec-Fetch-Site same-origin procede 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > sin Origin, Sec-Fetch-Site same-site procede 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > sin Origin, Sec-Fetch-Site none procede 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > un cliente sin ninguna de las dos cabeceras (curl, servicio) procede 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > evaluarOrigen (CSRF por origen, SC-LAB-007) > Origin pesa mas que Sec-Fetch-Site: un origen ajeno se rechaza aunque diga same-site 0ms
+ ✓ src/autorizacion/origen.guard.spec.ts > OrigenGuard > lanza 403 ante un POST de otro origen 2ms
+ ✓ src/autorizacion/origen.guard.spec.ts > OrigenGuard > deja pasar el POST del origen del frontend 0ms
+ ✓ src/autorizacion/politicas-declaradas.spec.ts > deny by default: toda ruta declara su politica (RNFS-002) > encuentra rutas que inspeccionar 2ms
+ ✓ src/autorizacion/politicas-declaradas.spec.ts > deny by default: toda ruta declara su politica (RNFS-002) > ninguna ruta queda sin politica ni marca de publica 1ms
+ ✓ src/autorizacion/politicas-declaradas.spec.ts > deny by default: toda ruta declara su politica (RNFS-002) > ninguna ruta es a la vez publica y con politica 0ms
+ ✓ src/autorizacion/politicas-declaradas.spec.ts > deny by default: toda ruta declara su politica (RNFS-002) > cada ruta publica documenta por que lo es 0ms
+ ✓ src/autorizacion/politicas-declaradas.spec.ts > deny by default: toda ruta declara su politica (RNFS-002) > toda politica declara su resolvedor de relacion (RNFS-005) 0ms
+ ✓ src/autorizacion/politicas-declaradas.spec.ts > deny by default: toda ruta declara su politica (RNFS-002) > las operaciones sobre el modelo de autorizacion exigen segundo factor 0ms
+
+ Test Files  7 passed (7)
+      Tests  96 passed (96)
+   Start at  13:51:45
+   Duration  1.10s (transform 365ms, setup 0ms, import 1.17s, tests 76ms, environment 1ms)
+
+
+ RUN  v4.1.11 /tmp/claude-0/-home-user/555abb18-5e2d-56ca-9036-b1372ac2c29f/scratchpad/repos/app/apps/web
+
+ ✓ src/lib/almacenamiento.spec.ts > almacenamiento del navegador > solo dos archivos usan localStorage, y para preferencias de interfaz 3ms
+ ✓ src/lib/almacenamiento.spec.ts > almacenamiento del navegador > ninguna clave guardada sugiere una credencial 1ms
+ ✓ src/lib/almacenamiento.spec.ts > almacenamiento del navegador > no hay cabecera Authorization, Bearer, document.cookie ni IndexedDB en el cliente 1ms
+ ✓ src/lib/almacenamiento.spec.ts > almacenamiento del navegador > el cliente de la API manda la sesion solo como cookie (credentials: include) 0ms
+
+ Test Files  1 passed (1)
+      Tests  4 passed (4)
+   Start at  13:51:47
+   Duration  280ms (transform 29ms, setup 0ms, import 44ms, tests 6ms, environment 0ms)
+
