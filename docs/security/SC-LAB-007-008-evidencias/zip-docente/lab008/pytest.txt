@@ -1,0 +1,31 @@
+# 2026-11-24 14:41:17 UTC · Python 3.13.18 · carpeta SC-LAB-008 del ZIP del docente
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.2.0, pluggy-1.7.0 -- /tmp/claude-0/-home-user/a7629135-5222-5bd2-a2d4-a3ee71bfeff5/scratchpad/v8/bin/python
+rootdir: /tmp/claude-0/-home-user/a7629135-5222-5bd2-a2d4-a3ee71bfeff5/scratchpad/run8
+plugins: platformdirs-4.14.8
+collecting ... collected 22 items
+
+tests/test_lab007.py::test_graphql_autorizado PASSED                     [  4%]
+tests/test_lab007.py::test_graphql_denegado PASSED                       [  9%]
+tests/test_lab007.py::test_profesor_estudiante_no_inscrito PASSED        [ 13%]
+tests/test_lab008.py::test_simulador_movil_disponible PASSED             [ 18%]
+tests/test_lab008.py::test_salud_app PASSED                              [ 22%]
+tests/test_lab008.py::test_consulta_propia_permitida_desde_cliente PASSED [ 27%]
+tests/test_lab008.py::test_consulta_ajena_rechazada_desde_cliente PASSED [ 31%]
+tests/test_security.py::test_grade_invalid[150] PASSED                   [ 36%]
+tests/test_security.py::test_grade_invalid[-1] PASSED                    [ 40%]
+tests/test_security.py::test_grade_invalid[hola] PASSED                  [ 45%]
+tests/test_security.py::test_grade_invalid[] PASSED                      [ 50%]
+tests/test_security.py::test_grade_invalid[NaN] PASSED                   [ 54%]
+tests/test_security.py::test_grade_invalid[Infinity] PASSED              [ 59%]
+tests/test_security.py::test_grade_invalid[None] PASSED                  [ 63%]
+tests/test_security.py::test_grade_invalid[99.999] PASSED                [ 68%]
+tests/test_security.py::test_professor_own_group PASSED                  [ 72%]
+tests/test_security.py::test_professor_other_group_forbidden PASSED      [ 77%]
+tests/test_security.py::test_student_cannot_modify PASSED                [ 81%]
+tests/test_security.py::test_student_cannot_read_other_student PASSED    [ 86%]
+tests/test_security.py::test_csrf_required PASSED                        [ 90%]
+tests/test_security.py::test_logout_revokes PASSED                       [ 95%]
+tests/test_security.py::test_outbox_transaction PASSED                   [100%]
+
+============================= 22 passed in 12.17s ==============================

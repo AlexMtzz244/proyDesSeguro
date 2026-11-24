@@ -1,0 +1,33 @@
+Set-Cookie (testing=True): Expires=Tue, 24 Nov 2026 15:11:07 GMT; Max-Age=1800; HttpOnly; Path=/; SameSite=Lax
+
+caso                                                       esperado obtenido  
+A1 alumna_eli lee su calificación (3,10)                        200      200  OK 
+A2 alumna_eli lee la de alumno_paz (4,20)                       403      403  OK 
+A3 sin sesión lee (3,10)                                        401      401  OK 
+A4 profe_ana lee a su alumna (3,10)                             200      200  OK 
+A5 profe_ana lee un grupo ajeno (4,20)                          403      403  OK 
+A6 profe_luis lee (3,20): alumna no inscrita en su grupo        403      403  OK 
+B1 profe_ana modifica (3,10)=90 con CSRF                        200      200  OK 
+B2 profe_ana modifica grupo ajeno (4,20)                        403      403  OK 
+B3 profe_ana a estudiante no inscrito (4,10)                    403      403  OK 
+B4 alumna_eli intenta modificar su nota                         403      403  OK 
+B5 sin sesión intenta modificar                                 401      401  OK 
+B6 profe_ana sin token CSRF                                     403      403  OK 
+B7 profe_ana con token CSRF falso                               403      403  OK 
+C  profe_ana envía grade='abc'                                  400      400  OK 
+C  profe_ana envía grade='101'                                  400      400  OK 
+C  profe_ana envía grade='-1'                                   400      400  OK 
+C  profe_ana envía grade='1e2'                                  400      200  FALLA
+C  profe_ana envía grade=''                                     400      400  OK 
+C  profe_ana envía grade=None                                   400      400  OK 
+D1 GraphQL alumna_eli su nota (3,10)                            200      200  OK 
+D2 GraphQL alumna_eli nota ajena (4,20)                         403      403  OK 
+D3 GraphQL sin sesión                                           401      401  OK 
+D4 GraphQL consulta inválida                                    400      400  OK 
+D5 GraphQL sin campo query                                      400      400  OK 
+S1 logout sin CSRF                                              403      403  OK 
+S2 logout con CSRF                                              200      200  OK 
+S3 usar la sesión después del logout                            401      401  OK 
+S4 login con contraseña incorrecta                              401      401  OK 
+
+27/28 casos coinciden con lo esperado

@@ -1,0 +1,29 @@
+# SC-LAB-008: contenedor de la imagen construida con el Dockerfile del ZIP
+# Se ejecutó con 'docker run' y los mismos controles del compose.yaml (read_only, tmpfs /tmp, no-new-privileges, cap_drop ALL, pids_limit 100, volumen /data).
+# Diferencias frente a 'docker compose up': red 'none' (el entorno no permite publicar puertos), por eso las peticiones se hicieron desde dentro del contenedor;
+# y la imagen se construyó con una copia del Dockerfile que solo añade el certificado del proxy del entorno para pip. No se probó el puerto 127.0.0.1:5000 publicado.
+
+# docker ps
+sc8 Up 6 seconds securecampus:lab008
+# usuario dentro del contenedor
+uid=999(scapp) gid=999(scapp) groups=999(scapp)
+# HostConfig
+ReadonlyRootfs=true CapDrop=[ALL] SecurityOpt=[no-new-privileges:true] PidsLimit=100
+# escritura en /app (debe fallar)
+touch: cannot touch '/app/prueba': Read-only file system
+exit=1
+# escritura en /data (debe funcionar)
+exit=0
+# docker logs
+[2026-11-24 14:39:34 +0000] [1] [INFO] Starting gunicorn 23.0.0
+[2026-11-24 14:39:34 +0000] [1] [INFO] Listening at: http://0.0.0.0:8000 (1)
+[2026-11-24 14:39:34 +0000] [1] [INFO] Using worker: sync
+[2026-11-24 14:39:34 +0000] [8] [INFO] Booting worker with pid: 8
+# healthcheck del compose.yaml (mismo comando)
+exit=0
+# GET /health
+200 {"status":"ok"}
+# GET /mobile-demo
+200 ['<title>SecureCampus | Simulador móvil SC-LAB-008</title>']
+# GET /grades/1/1 sin sesión (debe ser 401)
+GET /grades/1/1 sin sesión -> 401
