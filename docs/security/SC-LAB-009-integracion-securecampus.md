@@ -1,8 +1,10 @@
 # SC-LAB-009 → SecureCampus: SAST, imágenes que construyen y Trivy en CI
 
-El laboratorio usa un proyecto Flask del docente (pytest, Bandit, pip-audit, Trivy). Ese paquete no estuvo disponible,
-así que los controles se aplicaron a la aplicación real (`AppDesarrolloSeguro`, TypeScript). Lo que no se pudo verificar
-está declarado en el Word y al final de este documento.
+El laboratorio usa un proyecto Flask del docente (pytest, Bandit, pip-audit, Trivy). Ese paquete no estaba disponible al
+entregar, así que los controles se aplicaron a la aplicación real (`AppDesarrolloSeguro`, TypeScript). Lo que no se pudo
+verificar está declarado en el Word y al final de este documento. Después llegó el ZIP y se ejecutó: 22 pruebas aprobadas,
+Bandit y pip-audit sin hallazgos, imagen construida; **Trivy sobre esa imagen no se ejecutó** (Docker Hub respondió 429).
+Evidencia en `SC-LAB-009-evidencias/zip-docente/`.
 
 ## Qué se aplicó
 

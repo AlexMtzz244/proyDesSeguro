@@ -1,8 +1,11 @@
 # SC-LAB-007 y SC-LAB-008 → SecureCampus: matriz HTTP, CSRF, sesión y contenedores
 
 Los dos laboratorios usan una aplicación Flask del docente (REST, GraphQL, simulador móvil, Docker). Ese paquete
-no estuvo disponible para el equipo, así que las experiencias se ejecutaron contra la aplicación real
-(`AppDesarrolloSeguro`, NestJS + PostgreSQL + Redis). Lo que no se ejecutó está declarado en cada Word.
+no estaba disponible al entregar, así que las experiencias se ejecutaron contra la aplicación real
+(`AppDesarrolloSeguro`, NestJS + PostgreSQL + Redis). Después llegaron los ZIP y se ejecutaron: su evidencia está en
+`SC-LAB-007-008-evidencias/zip-docente/` y en el Anexo de cada Word (007: 18 pruebas, matriz REST/GraphQL; 008: 22 pruebas,
+imagen y contenedor). Una diferencia relevante: la demostración Flask acepta la calificación `"1e2"` (200); SecureCampus la
+rechaza (400). El código del docente está en `AppDesarrolloSeguro`, carpeta `labs-docente/`.
 
 ## Qué se aplicó
 
