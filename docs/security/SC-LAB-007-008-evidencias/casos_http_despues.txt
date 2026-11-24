@@ -1,0 +1,43 @@
+API:           http://localhost:3001  (esquema http:, solo valido en localhost)
+Grupo propio:  01M7809AAFRC5B1ER4ENW0AAWP  (profesor asignado)
+Grupo ajeno:   01M7809H652MC0PK0Q1V44FYA9  (el profesor NO esta asignado)
+
+A. Profesor: consulta de grupos
+OK    A1  GET lista del grupo PROPIO                                         esperado 200  obtenido 200
+OK    A2  GET lista del grupo AJENO (misma sesion)                           esperado 403  obtenido 403
+OK    A3  GET sin sesion                                                     esperado 401  obtenido 401
+
+B. Profesor: captura de calificaciones
+OK    B1  captura 88.50 a la alumna inscrita (grupo propio)                  esperado 201  obtenido 201
+OK    B1  valor guardado: 88.5 (se espera 88.5, sin redondeo)
+OK    B2  captura en el grupo AJENO                                          esperado 403  obtenido 403
+OK    B3  captura con valor 150 (fuera de rango)                             esperado 400  obtenido 400
+OK    B4  captura con valor "1e2" (notacion cientifica como texto)           esperado 400  obtenido 400
+OK    B5  captura sin sesion                                                 esperado 401  obtenido 401
+OK    B6  tras los rechazos el valor sigue en 88.5 (se espera 88.5)
+
+C. Peticiones desde otro origen (CSRF)
+OK    C1  captura con sesion valida pero Origin ajeno                        esperado 403  obtenido 403
+OK    C1  valor guardado: 88.5 (sin cambios respecto a 88.5)
+OK    C2  inicio de sesion desde Origin ajeno                                esperado 403  obtenido 403
+OK    C2  no se emitio cookie de sesion
+OK    C3  cierre de sesion de la alumna desde Origin ajeno                   esperado 403  obtenido 403
+OK    C4  la sesion de la alumna sigue viva tras el intento                  esperado 200  obtenido 200
+
+D. Alumna: control de acceso
+OK    D0  el profesor publica las calificaciones del grupo propio            esperado 201  obtenido 201
+OK    D1  GET de su propia calificacion                                      esperado 200  obtenido 200
+OK    D2  GET de la calificacion de otra persona (cambiando el id)           esperado 403  obtenido 403
+OK    D3  intento de modificar la propia calificacion                        esperado 403  obtenido 403
+OK    D3  valor guardado: 88.5 (se espera 88.5)
+
+E. Sesion del cliente (SC-LAB-008)
+      Set-Cookie: sc_sesion=<43 caracteres, no se imprime>; path; expires; httponly; samesite
+OK    E1  la cookie es HttpOnly
+OK    E2  la cookie lleva SameSite
+OK    E3  la cookie lleva Path=/
+      Secure: ausente (SESION_COOKIE_SECURE=false, solo para HTTP en localhost)
+OK    E4  el token de sesion no aparece en el cuerpo de /auth/yo
+OK    E5  sin cookie, la API no identifica a nadie                           esperado 401  obtenido 401
+
+Todos los casos coinciden.

@@ -71,6 +71,8 @@ proyDesSeguro/
 | **SC-LAB-002** | ¿En qué fase se actúa? | [Mapa Secure SDLC](docs/security/SC-LAB-002-secure-sdlc-map.md) | [Word](docs/SC_LAB_002_Manual_Alumno_Secure_SDLC.docx) |
 | **SC-LAB-003** | ¿Qué cuesta descubrirlo tarde? | [Costo y Shift Left](docs/security/SC-LAB-003-shift-left-analysis.md) | [Word](docs/SC_LAB_003_Manual_Alumno_Shift_Left_v1.0.docx) |
 | **SC-LAB-006** | ¿Los controles resisten las pruebas? | [Código y evidencias](docs/security/SC-LAB-006-securecampus/) · [Integración en la app](docs/security/SC-LAB-006-integracion-securecampus.md) | [Word](docs/SC_LAB_006_Guia_Estudiante_Laboratorio_Integrador.docx) |
+| **SC-LAB-007** | ¿La autorización resiste cambiar el recurso o el origen? | [Integración](docs/security/SC-LAB-007-008-integracion-securecampus.md) · [Evidencias](docs/security/SC-LAB-007-008-evidencias/) | [Word](docs/SC_LAB_007_Guia_Guiada_Estudiantes.docx) |
+| **SC-LAB-008** | ¿Qué protege al cliente y al contenedor? | [Integración](docs/security/SC-LAB-007-008-integracion-securecampus.md) | [Word](docs/SC_LAB_008_Guia_Guiada.docx) |
 | **SC-SRS-001** | ¿Qué debe hacer, y qué no debe permitir? | [Requisitos](docs/security/SC-SRS-001-requisitos-aplicacion.md) | — |
 
 ### Decisiones de arquitectura

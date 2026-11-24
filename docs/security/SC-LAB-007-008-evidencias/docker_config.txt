@@ -1,0 +1,28 @@
+$ docker compose --profile endurecido config --format json   # campos de seguridad
+api-endurecido
+  target=produccion  user=node  read_only=true
+  cap_drop=ALL  security_opt=no-new-privileges:true
+  tmpfs=/tmp  volumes=ninguno
+  ports=127.0.0.1:3001
+web-endurecido
+  target=produccion  user=node  read_only=true
+  cap_drop=ALL  security_opt=no-new-privileges:true
+  tmpfs=/tmp,/app/apps/web/.next/cache  volumes=ninguno
+  ports=127.0.0.1:3000
+
+# puertos publicados por todos los servicios
+  api: 127.0.0.1:3001
+  api-endurecido: 127.0.0.1:3001
+  clamav: 127.0.0.1:3310
+  mailpit: 127.0.0.1:1025
+  mailpit: 127.0.0.1:8025
+  minio: 127.0.0.1:9000
+  minio: 127.0.0.1:9001
+  postgres: 127.0.0.1:5432
+  redis: 127.0.0.1:6379
+  web: 127.0.0.1:3000
+  web-endurecido: 127.0.0.1:3000
+
+$ docker info   # servidor
+Server:
+failed to connect to the docker API at unix:///var/run/docker.sock; check if the path is correct and if the da
