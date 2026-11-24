@@ -1,0 +1,26 @@
+$ pnpm sast   # primera corrida, antes de corregir o justificar nada
+
+apps/api/src/auditoria/auditoria.service.ts:131  security/detect-object-injection
+apps/api/src/auditoria/auditoria.service.ts:134  security/detect-object-injection
+apps/api/src/comun/excepciones.filter.ts:129  security/detect-object-injection
+apps/api/src/comun/excepciones.filter.ts:132  security/detect-object-injection
+apps/api/src/comun/zod-validacion.pipe.ts:42  security/detect-object-injection
+apps/api/src/configuracion/decisiones.service.ts:49  security/detect-object-injection
+apps/api/src/configuracion/decisiones.service.ts:49  security/detect-object-injection
+apps/api/src/configuracion/decisiones.service.ts:129  security/detect-object-injection
+apps/api/src/usuarios/usuarios.service.ts:71  security/detect-object-injection
+apps/web/src/app/ingresar/page.tsx:225  security/detect-object-injection
+apps/web/src/app/panel/calificaciones/captura.tsx:245  security/detect-object-injection
+apps/web/src/app/panel/documentos/page.tsx:236  security/detect-object-injection
+apps/web/src/componentes/ui.tsx:387  security/detect-object-injection
+apps/web/src/componentes/ui.tsx:390  security/detect-object-injection
+apps/web/src/componentes/ui.tsx:582  security/detect-object-injection
+apps/web/src/componentes/ui.tsx:584  security/detect-object-injection
+packages/contracts/src/calificaciones.ts:39  security/detect-object-injection
+packages/contracts/src/decisiones.ts:166  security/detect-object-injection
+packages/contracts/src/validadores.ts:13  security/detect-unsafe-regex
+packages/contracts/src/validadores.ts:14  security/detect-unsafe-regex
+
+20 alertas de seguridad:
+  security/detect-object-injection: 18
+  security/detect-unsafe-regex: 2

@@ -73,6 +73,7 @@ proyDesSeguro/
 | **SC-LAB-006** | ¿Los controles resisten las pruebas? | [Código y evidencias](docs/security/SC-LAB-006-securecampus/) · [Integración en la app](docs/security/SC-LAB-006-integracion-securecampus.md) | [Word](docs/SC_LAB_006_Guia_Estudiante_Laboratorio_Integrador.docx) |
 | **SC-LAB-007** | ¿La autorización resiste cambiar el recurso o el origen? | [Integración](docs/security/SC-LAB-007-008-integracion-securecampus.md) · [Evidencias](docs/security/SC-LAB-007-008-evidencias/) | [Word](docs/SC_LAB_007_Guia_Guiada_Estudiantes.docx) |
 | **SC-LAB-008** | ¿Qué protege al cliente y al contenedor? | [Integración](docs/security/SC-LAB-007-008-integracion-securecampus.md) | [Word](docs/SC_LAB_008_Guia_Guiada.docx) |
+| **SC-LAB-009** | ¿El pipeline encuentra lo que se nos escapa? | [Integración](docs/security/SC-LAB-009-integracion-securecampus.md) · [Evidencias](docs/security/SC-LAB-009-evidencias/) | [Word](docs/SC_LAB_009_Guia_Guiada_Estudiantes.docx) |
 | **SC-SRS-001** | ¿Qué debe hacer, y qué no debe permitir? | [Requisitos](docs/security/SC-SRS-001-requisitos-aplicacion.md) | — |
 
 ### Decisiones de arquitectura

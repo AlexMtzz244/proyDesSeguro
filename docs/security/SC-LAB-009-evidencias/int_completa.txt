@@ -1,0 +1,306 @@
+
+> securecampus@0.1.0 test:int /home/user/app
+> pnpm --filter api test:int
+
+
+> api@0.1.0 test:int /home/user/app/apps/api
+> vitest run --config vitest.integracion.config.ts
+
+
+ RUN  v4.1.11 /home/user/app/apps/api
+
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:39 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'9e914d171dc2d8425197a813cfdf6553d1712a7f550c5e2620f53d05795ab2a8'[39m,
+  intento: [33m2[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:52 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'0e58b96001599ad35a99f1f980db7be3ef8bc2c5640b0aac81233c0341054fb5'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:53 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'dff7d96ce556d02aee6bf6108a59a09df9aea92c1d332aabfb99c22d4954e697'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:54 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'e66462a112012c4f6185de89b243bcf3ec8d818b23b623cbef3e0109f6c3fe4a'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:54 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'2af27fa03433419b9f7f68fafa32129d48ef8cd453a50074dd2bef968cf3f213'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:54 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'0e58b96001599ad35a99f1f980db7be3ef8bc2c5640b0aac81233c0341054fb5'[39m,
+  intento: [33m2[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:54 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'6665d42878bc3325387f63afea2f9c2a2d44e800ffb5913b159678ed7cb5b426'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:54 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'2fef9b4a0ed52cba94ecc14325188418c1ba3965238b6e58ca3e52a63852e7e1'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:54 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'777b03a5c3f37e751a09bc112a264b51698570d9a4c9df891c52d9db5c1e4fa2'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:54 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'0df5ef9e0c26a554e5296663ae994cb999f65e291c51f1427c4b3fbb9ed90a57'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:55 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'8783e85c78bf3d379247bbc8cb57e95d5b9744eb951928565138a46affce877b'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:55 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'97520fd4b68db71cd557bed4c5328164728b3faebf1e7b8ce90f24ebec03ef32'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:55 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'21ad61b3703739367b31bfbb21c3eaa40ca3fea23832219261625d4e0bac1034'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15036  - [39m11/24/2026, 1:21:55 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'80b8ce564b84da536026e4a1becbd0e397f857861e2bb404f0ac687efcb1d513'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:21:56 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'dff7d96ce556d02aee6bf6108a59a09df9aea92c1d332aabfb99c22d4954e697'[39m,
+  intento: [33m2[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:21:56 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'e66462a112012c4f6185de89b243bcf3ec8d818b23b623cbef3e0109f6c3fe4a'[39m,
+  intento: [33m2[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:21:56 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'3df1da0c05a12abc9f1c6254d7b5291746b21175f4c6821604b8ead63d4b9cee'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:21:57 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'11a054a9ce4ee442353727c2e8d5a09176464d86594cb7714a9d65f84ca4b1e9'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:21:57 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'a15b85eb93395842c4406dfb5b8bf59b2cf29c7d26fdff6b278bc15d0da7c1c4'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:21:57 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'7496d4113cf733bb8604307a5859dcfa331c2961838557bd9ee0d04d62ff0e70'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:21:58 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'b80d07e75d397ccce73484200d2f4f820e197546040f8075662c61d47736a1d6'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:21:59 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'3df1da0c05a12abc9f1c6254d7b5291746b21175f4c6821604b8ead63d4b9cee'[39m,
+  intento: [33m2[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:21:59 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'11a054a9ce4ee442353727c2e8d5a09176464d86594cb7714a9d65f84ca4b1e9'[39m,
+  intento: [33m2[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:21:59 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'a15b85eb93395842c4406dfb5b8bf59b2cf29c7d26fdff6b278bc15d0da7c1c4'[39m,
+  intento: [33m2[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:21:59 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'7496d4113cf733bb8604307a5859dcfa331c2961838557bd9ee0d04d62ff0e70'[39m,
+  intento: [33m2[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:22:00 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'b80d07e75d397ccce73484200d2f4f820e197546040f8075662c61d47736a1d6'[39m,
+  intento: [33m2[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:22:03 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'3df1da0c05a12abc9f1c6254d7b5291746b21175f4c6821604b8ead63d4b9cee'[39m,
+  intento: [33m3[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:22:03 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'11a054a9ce4ee442353727c2e8d5a09176464d86594cb7714a9d65f84ca4b1e9'[39m,
+  intento: [33m3[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:22:03 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'a15b85eb93395842c4406dfb5b8bf59b2cf29c7d26fdff6b278bc15d0da7c1c4'[39m,
+  intento: [33m3[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:22:03 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'7496d4113cf733bb8604307a5859dcfa331c2961838557bd9ee0d04d62ff0e70'[39m,
+  intento: [33m3[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:22:04 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'b80d07e75d397ccce73484200d2f4f820e197546040f8075662c61d47736a1d6'[39m,
+  intento: [33m3[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15068  - [39m11/24/2026, 1:22:07 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'71fc652e80b5fede4f1007810d2f37f4fbec4afc8a3b8531a28953d5e5a925ae'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15090  - [39m11/24/2026, 1:22:08 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'cd09cce98fd6180083b96f6c2fcdd1ead91427c90eeed732c340e9c01f53215c'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15090  - [39m11/24/2026, 1:22:08 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'4d3e5ef837f29b1d00943113a776384a8b7efe5e873b6862935a21690aa3a8b0'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15090  - [39m11/24/2026, 1:22:09 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'd63aef1e4cec015187755289df4304bf3530643a09998cfa915046d9854fd576'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15110  - [39m11/24/2026, 1:22:10 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'cd09cce98fd6180083b96f6c2fcdd1ead91427c90eeed732c340e9c01f53215c'[39m,
+  intento: [33m2[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15110  - [39m11/24/2026, 1:22:11 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'af740b8f860f5c6e0e400e4fd28ebcc4e32ee29f83186f869c8127b94e0dc252'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15110  - [39m11/24/2026, 1:22:11 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'24a17cb4f3e35a09b9031c812508df61711044438864b375056a90714bf737e2'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15130  - [39m11/24/2026, 1:22:13 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'4a324affb874a00f406f1cd1fb02bb6b46320570a61a2247305dc19d5bf38ade'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15130  - [39m11/24/2026, 1:22:13 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'c3fdac52cf91cc5e41eeaaa0380f0ddcbe3338b1d973c291cf0f16da1ea80dfc'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15130  - [39m11/24/2026, 1:22:13 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'2e93f6c44870a73bae2c65e53075b4be24de8f988e939324e378884a1d9c1c6b'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15151  - [39m11/24/2026, 1:22:15 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'ab7eaa084ab48216a8b7120a17a2a462e83ab0b4cc2a3a02a8728eaf19a8efb7'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15151  - [39m11/24/2026, 1:22:15 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'd42bc9d29c7a8dd7169a666f1c6fc5b22ecafb59db778be419d315264b310f39'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15151  - [39m11/24/2026, 1:22:16 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'33c5087a0166109ad01851027146b912ef026679726813987d875885a9c71fbe'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15173  - [39m11/24/2026, 1:22:17 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'b5637e4b3a3ddfe29e590c024599a30d4ceffd77222a5e525347543ba8a576fa'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15173  - [39m11/24/2026, 1:22:18 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'5aec9d9f5a85aaee6ce8d7be9299268df717c07dd8127f477106371a6d8d5921'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15193  - [39m11/24/2026, 1:22:19 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'4716503c54a60f2e58e11c85556af1fcfc12487753013a8ac0d614081cb0316b'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+[31m[Nest] 15193  - [39m11/24/2026, 1:22:19 AM [31m  ERROR[39m [38;5;3m[NotificacionesWorker] [39mObject(3) {
+  jobId: [32m'b5c7fd4ba904f1e8a297f1c9db4c26c3e8ad9211d429204e457168d76f04a7e0'[39m,
+  intento: [33m1[39m,
+  error: [32m'connect ECONNREFUSED 127.0.0.1:1025'[39m
+}
+Fallo el envio de una notificacion
+
+ Test Files  8 passed (8)
+      Tests  120 passed (120)
+   Start at  01:21:38
+   Duration  41.28s (transform 569ms, setup 0ms, import 5.01s, tests 35.46s, environment 1ms)
+
+exit=0
