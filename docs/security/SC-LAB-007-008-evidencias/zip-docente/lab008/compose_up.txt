@@ -1,0 +1,34 @@
+# docker compose -p sc008 up -d --no-build   (compose.yaml del ZIP sin modificar; imagen construida antes con el Dockerfile del ZIP)
+# docker compose ps
+NAME                   IMAGE                COMMAND                  SERVICE        CREATED         STATUS                            PORTS
+sc008-securecampus-1   sc008-securecampus   "gunicorn --workers …"   securecampus   9 seconds ago   Up 8 seconds (health: starting)   127.0.0.1:5000->8000/tcp
+# puerto publicado
+8000/tcp -> 127.0.0.1:5000
+# curl desde el host
+GET /health -> 200
+GET /mobile-demo -> 200
+{"status":"ok"}
+
+GET /grades/3/10 sin sesión -> 401
+# estado de salud
+starting
+# escucha en el host (solo loopback)
+# docker compose logs --tail=10
+securecampus-1  | [2026-11-24 14:46:07 +0000] [1] [INFO] Starting gunicorn 23.0.0
+securecampus-1  | [2026-11-24 14:46:07 +0000] [1] [INFO] Listening at: http://0.0.0.0:8000 (1)
+securecampus-1  | [2026-11-24 14:46:07 +0000] [1] [INFO] Using worker: sync
+securecampus-1  | [2026-11-24 14:46:07 +0000] [7] [INFO] Booting worker with pid: 7
+# estado de salud tras 25 s
+healthy
+sc008-securecampus-1 Up 30 seconds (healthy) 127.0.0.1:5000->8000/tcp
+# login desde el host (cabeceras de la cookie)
+HTTP/1.1 200 OK
+Set-Cookie: sc_session=<valor omitido>; Expires=Tue, 24 Nov 2026 15:16:37 GMT; Max-Age=1800; HttpOnly; Path=/; SameSite=Lax
+# docker compose down (conserva el volumen)
+ Container sc008-securecampus-1 Stopping 
+ Container sc008-securecampus-1 Stopped 
+ Container sc008-securecampus-1 Removing 
+ Container sc008-securecampus-1 Removed 
+ Network sc008_default Removing 
+ Network sc008_default Removed 
+sc008_securecampus_data

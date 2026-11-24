@@ -1,0 +1,31 @@
+# SC-LAB-009: pipeline del ZIP del docente ejecutado en GitHub Actions
+# Repositorio: AlexMtzz244/AppDesarrolloSeguro, rama claude/project-thread-gad54w
+# Workflow: .github/workflows/sc-lab-009-docente.yml (copia del security.yml del ZIP; ver cambios abajo)
+# Ejecución final: https://github.com/AlexMtzz244/AppDesarrolloSeguro/actions/runs/45418279101  (commit 52e3e55)
+
+## Resultado por trabajo
+security   (Pruebas, SAST y dependencias)  -> OK   pytest, Bandit y pip-audit en verde (Python 3.12 en el runner)
+container  (Imagen y escaneo)              -> FALLA docker build OK; el paso "Escanear imagen con Trivy" sale con código 1 (exit-code: '1')
+
+## Hallazgos de Trivy (severidad HIGH/CRITICAL, solo con corrección disponible)
+Sistema operativo: securecampus:lab009 (debian 13.8) -> 0 vulnerabilidades
+Paquetes Python  : 5 (HIGH 5, CRITICAL 0). Los paquetes de requirements.txt (Flask, Werkzeug, graphql-core, Jinja2, etc.) salen con 0.
+
+| Biblioteca | Vulnerabilidad      | Versión instalada | Corregida en |
+|------------|---------------------|-------------------|--------------|
+| msgpack    | CVE-2026-114613     | 1.1.2             | 1.2.3        |
+| msgpack    | GHSA-6v7p-g79w-8964 | 1.1.2             | 1.2.1        |
+| setuptools | CVE-2025-47273      | 70.3.0            | 78.1.1       |
+| urllib3    | CVE-2026-97687      | 2.7.0             | 2.8.0        |
+| urllib3    | CVE-2026-97689      | 2.7.0             | 2.8.0        |
+
+Interpretación (inferida, no verificada): msgpack, setuptools y urllib3 no están en requirements.txt ni en la lista de
+paquetes con METADATA que Trivy marca con 0; probablemente vienen empaquetados dentro de pip o de la imagen base python:3.13-slim.
+
+## Intentos anteriores y cambios al workflow del ZIP
+1. Ejecución 1 (commit ea6cdda): el trabajo container falló al preparar el job: "Unable to resolve action
+   `aquasecurity/trivy-action@0.33.1`, unable to find version `0.33.1`". El ZIP referencia esa etiqueta y ya no existe.
+2. Ejecución 2 (commit f6e6811): con `@v0.33.1` la acción resolvió, pero "Install Trivy" (binario v0.65.0) salió con código 1.
+3. Ejecución 3 (commit 52e3e55): con `version: 'latest'` Trivy se instaló, descargó su base y escaneó la imagen (resultado de arriba).
+Además, los comandos del trabajo security corren con working-directory labs-docente/SC-LAB-009 y docker build usa ese directorio como contexto.
+El trabajo security pasó en las tres ejecuciones.
