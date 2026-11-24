@@ -3,8 +3,10 @@
 El laboratorio usa un proyecto Flask del docente (pytest, Bandit, pip-audit, Trivy). Ese paquete no estaba disponible al
 entregar, así que los controles se aplicaron a la aplicación real (`AppDesarrolloSeguro`, TypeScript). Lo que no se pudo
 verificar está declarado en el Word y al final de este documento. Después llegó el ZIP y se ejecutó: 22 pruebas aprobadas,
-Bandit y pip-audit sin hallazgos, imagen construida; **Trivy sobre esa imagen no se ejecutó** (Docker Hub respondió 429).
-Evidencia en `SC-LAB-009-evidencias/zip-docente/`.
+Bandit y pip-audit sin hallazgos, imagen construida. El pipeline del ZIP también corrió en GitHub Actions: el trabajo
+`security` pasó y el trabajo `container` quedó **rojo**, porque Trivy halló 5 vulnerabilidades HIGH (con corrección) en paquetes
+Python de la imagen (msgpack, setuptools, urllib3). Evidencia en `SC-LAB-009-evidencias/zip-docente/`; el detalle, incluidos los
+cambios que hubo que hacer al workflow del ZIP para que corriera, está en `github_actions_pipeline.txt`.
 
 ## Qué se aplicó
 
