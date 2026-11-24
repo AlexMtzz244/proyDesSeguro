@@ -1,0 +1,11 @@
+$ pnpm sast   # con un archivo canario que usa eval(variable) y obj[clave]
+> securecampus@0.1.0 sast /home/user/app
+> eslint -c eslint.seguridad.config.mjs apps/api/src apps/web/src packages/contracts/src --max-warnings 0
+/home/user/app/apps/api/src/canario-sast.ts
+  2:3   error  Unused eslint-disable directive (no problems were reported from 'no-eval')
+  3:10  error  eval with argument of type Identifier                                       security/detect-eval-with-expression
+  3:26  error  Generic Object Injection Sink                                               security/detect-object-injection
+✖ 3 problems (3 errors, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+ ELIFECYCLE  Command failed with exit code 1.
+exit=1

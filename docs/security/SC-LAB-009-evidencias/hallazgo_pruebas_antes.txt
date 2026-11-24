@@ -1,0 +1,77 @@
+
+ RUN  v4.1.11 /home/user/app/apps/api
+
+ ❯ src/comun/zod-validacion.pipe.spec.ts (2 tests | 2 failed) 6ms
+     × agrupa por clave aunque coincida con una propiedad de Object.prototype 4ms
+     × devuelve un objeto sin prototipo 1ms
+ ❯ src/auditoria/sanear.spec.ts (3 tests | 2 failed) 13ms
+     × conserva la clave __proto__ como dato en lugar de perderla 7ms
+     × no deja que la clave __proto__ cambie el prototipo del resultado 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 4 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/auditoria/sanear.spec.ts > sanear (bitacora) > conserva la clave __proto__ como dato en lugar de perderla
+AssertionError: expected [ 'campo' ] to include '__proto__'
+ ❯ src/auditoria/sanear.spec.ts:19:33
+     17|     const salida = JSON.parse(JSON.stringify(sanear(entrada))) as Reco…
+     18|
+     19|     expect(Object.keys(salida)).toContain('__proto__');
+       |                                 ^
+     20|     expect(salida.campo).toBe('visible');
+     21|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/4]⎯
+
+ FAIL  src/auditoria/sanear.spec.ts > sanear (bitacora) > no deja que la clave __proto__ cambie el prototipo del resultado
+AssertionError: expected { inyectada: true } to be null
+
+- Expected:
+null
+
++ Received:
+{
+  "inyectada": true,
+}
+
+ ❯ src/auditoria/sanear.spec.ts:28:43
+     26|     const salida = sanear(entrada) as Record<string, unknown>;
+     27|
+     28|     expect(Object.getPrototypeOf(salida)).toBeNull();
+       |                                           ^
+     29|     expect(salida.inyectada).toBeUndefined();
+     30|   });
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/4]⎯
+
+ FAIL  src/comun/zod-validacion.pipe.spec.ts > agruparPorCampo > agrupa por clave aunque coincida con una propiedad de Object.prototype
+TypeError: campos[clave].push is not a function
+ ❯ agruparPorCampo src/comun/zod-validacion.pipe.ts:42:28
+     40|   for (const issue of error.issues) {
+     41|     const clave = issue.path.join('.') || '_';
+     42|     (campos[clave] ??= []).push(issue.message);
+       |                            ^
+     43|   }
+     44|   return campos;
+ ❯ src/comun/zod-validacion.pipe.spec.ts:19:20
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/4]⎯
+
+ FAIL  src/comun/zod-validacion.pipe.spec.ts > agruparPorCampo > devuelve un objeto sin prototipo
+TypeError: campos[clave].push is not a function
+ ❯ agruparPorCampo src/comun/zod-validacion.pipe.ts:42:28
+     40|   for (const issue of error.issues) {
+     41|     const clave = issue.path.join('.') || '_';
+     42|     (campos[clave] ??= []).push(issue.message);
+       |                            ^
+     43|   }
+     44|   return campos;
+ ❯ src/comun/zod-validacion.pipe.spec.ts:28:34
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/4]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  4 failed | 1 passed (5)
+   Start at  00:42:54
+   Duration  351ms (transform 155ms, setup 0ms, import 436ms, tests 19ms, environment 0ms)
+

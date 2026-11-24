@@ -1,0 +1,27 @@
+$ docker exec web9 id
+uid=1000(node) gid=1000(node) groups=1000(node)
+
+$ docker exec web9 sh -c "touch /app/prueba"
+touch: cannot touch '/app/prueba': Read-only file system
+
+$ docker exec web9 sh -c "ls /usr/local/bin/npm"
+ls: cannot access '/usr/local/bin/npm': No such file or directory
+
+$ docker inspect web9 (HostConfig)
+ReadonlyRootfs=true CapDrop=[ALL] SecurityOpt=[no-new-privileges:true] User=node
+
+$ curl -sI http://127.0.0.1:3000/ingresar
+HTTP/1.1 200 OK
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Referrer-Policy: no-referrer
+Permissions-Policy: camera=(), microphone=(), geolocation=()
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Resource-Policy: same-origin
+content-security-policy: default-src 'self'; script-src 'self' 'nonce-NjYwZDA0MDEtMzU1NS00MjRlLTg2MjgtNGIzMWYxMWVmY2M1' 'strict-dynamic'; style-src 'self' 'nonce-NjYwZDA0MDEtMzU1NS00MjRlLTg2MjgtNGIzMWYxMWVmY2M1'; style-src-attr 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://api.campus.ejemplo.mx; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self'
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding
+link: </_next/static/media/e4af272ccee01ff0-s.p.woff2>; rel=preload; as="font"; crossorigin=""; nonce="NjYwZDA0MDEtMzU1NS00MjRlLTg2MjgtNGIzMWYxMWVmY2M1"; type="font/woff2"
+X-Powered-By: Next.js
+Cache-Control: private, no-cache, no-store, max-age=0, must-revalidate
+Content-Type: text/html; charset=utf-8
+Date: Tue, 24 Nov 2026 01:19:49 GMT

@@ -1,0 +1,34 @@
+$ pnpm lint
+
+> securecampus@0.1.0 lint /home/user/app
+> pnpm -r lint
+
+Scope: 3 of 4 workspace projects
+packages/contracts lint$ eslint src --max-warnings 0
+packages/contracts lint: Done
+apps/api lint$ eslint src --max-warnings 0
+apps/web lint$ eslint src --max-warnings 0
+apps/web lint: Done
+apps/api lint: Done
+exit=0
+
+$ pnpm typecheck
+
+> securecampus@0.1.0 typecheck /home/user/app
+> pnpm -r typecheck
+
+Scope: 3 of 4 workspace projects
+packages/contracts typecheck$ tsc -p tsconfig.json --noEmit
+packages/contracts typecheck: Done
+apps/api typecheck$ tsc -p tsconfig.json --noEmit
+apps/web typecheck$ tsc -p tsconfig.json --noEmit
+apps/web typecheck: Done
+apps/api typecheck: Done
+exit=0
+
+$ pnpm sast
+
+> securecampus@0.1.0 sast /home/user/app
+> eslint -c eslint.seguridad.config.mjs apps/api/src apps/web/src packages/contracts/src --max-warnings 0
+
+exit=0
